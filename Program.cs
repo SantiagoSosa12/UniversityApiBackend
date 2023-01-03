@@ -2,18 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using UniversityApiBackEnd.DataAccess;
 using Microsoft.Extensions.DependencyInjection;
+using UniversityApiBackEnd.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
-// Usign para anadir dependencias
-builder.Services.AddDbContext<UniversityDBContext>(options =>
-// Usign para anadir dependencias
-    options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityDBContext") ?? throw new InvalidOperationException("Connection string 'UniversityDBContext' not found.")));
+
 // Usign para anadir dependencias
 builder.Services.AddDbContext<UniversityBDContext>(options =>
 // Usign para anadir dependencias
-    options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityDBContext") ?? throw new InvalidOperationException("Connection string 'UniversityDBContext' not found.")));
-//builder.Services.AddDbContext<UniversityDBContext>(options =>
-//options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityDB") ?? throw new InvalidOperationException("Connection string 'UniversityDBContext' not found.")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("UniversityDBContext") ?? throw new InvalidOperationException("Connection string 'UniversityDBContext' not found.")));
+
 
 // Conectar con la BD
 const string CONNECTIONNAME = "UniversityBD";

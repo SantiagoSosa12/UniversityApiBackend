@@ -6,14 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using UniversityApiBackEnd.Models.DataModels;
+using UniversityApiBackEnd.DataAccess;
 
 namespace UniversityApiBackEnd.Controllers
 {
     public class ChapterController : Controller
     {
-        private readonly UniversityDBContext _context;
+        private readonly UniversityBDContext _context;
 
-        public ChapterController(UniversityDBContext context)
+        public ChapterController(UniversityBDContext context)
         {
             _context = context;
         }
